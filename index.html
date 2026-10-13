@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Hilván & Humo: sacos, abrigos y chaquetas con estilo, comodidad y personalidad.">
+
+    <title>Hilván & Humo | Moda que abriga tu estilo</title>
+
+    <style>
+        /* =========================================
+           1. CONFIGURACIÓN GENERAL Y COLORES
+        ========================================= */
+
+        :root {
+            --negro: #171717;
+            --blanco: #ffffff;
+            --azul: #243b53;
+            --gris: #e8e8e8;
+            --gris-oscuro: #626262;
+            --beige: #d8c5a5;
+            --beige-claro: #f5f0e8;
+            --fondo: #faf9f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: var(--fondo);
+            color: var(--negro);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input,
+        textarea {
+            font: inherit;
+        }
+
+        button,
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible {
+            outline: 3px solid var(--azul);
+            outline-offset: 4px;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .contenedor {
+            width: min(1120px, 90%);
+            margin: 0 auto;
+        }
+
+        .seccion {
+            padding: 85px 0;
+        }
+
+        .etiqueta {
+            color: var(--azul);
+            font-size: 0.78rem;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .titulo-seccion {
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.15;
+            margin: 12px 0 18px;
+            letter-spacing: -1.5px;
+        }
+
+        .descripcion-seccion {
+            max-width: 620px;
+            color: var(--gris-oscuro);
+            margin-bottom: 38px;
+        }
+
+        /* =========================================
+           2. ENCABEZADO Y MENÚ DE NAVEGACIÓN
+        ========================================= */
+
+        .encabezado {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.97);
+            border-bottom: 1px solid var(--gris);
+        }
+
+        .barra-navegacion {
+            min-height: 78px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .logo {
+            font-size: 1.45rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            line-height: 1.1;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: var(--azul);
+        }
+
+        .logo small {
+            display: block;
+            font-size: 0.62rem;
+            font-weight: normal;
+            letter-spacing: 4px;
+            margin-top: 5px;
+            color: var(--gris-oscuro);
+        }
+
+        .menu {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .menu a {
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .menu a:hover {
+            color: var(--azul);
+        }
+
+        .menu .enlace-contacto {
+            background: var(--negro);
+            color: var(--blanco);
+            padding: 11px 19px;
+            border-radius: 3px;
+        }
+
+        .menu .enlace-contacto:hover {
+            background: var(--azul);
+            color: var(--blanco);
+        }
+
+        .boton-menu {
+            display: none;
+            border: 1px solid var(--gris);
+            background: var(--blanco);
+            color: var(--negro);
+            border-radius: 4px;
+            padding: 9px 12px;
+            cursor: pointer;
+        }
+
+        /* =========================================
+           3. PORTADA PRINCIPAL
+        ========================================= */
+
+        .portada {
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            background:
+                radial-gradient(
+                    ellipse at 82% 35%,
+                    #e1d5c3 0,
+                    #c5b59f 20%,
+                    transparent 48%
+                ),
+                linear-gradient(115deg, #f5f0e8 0%, #e9e1d5 100%);
+            overflow: hidden;
+        }
+
+        .contenido-portada {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            align-items: center;
+            gap: 45px;
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+
+        .texto-portada h1 {
+            font-size: clamp(3rem, 6vw, 5.4rem);
+            line-height: 0.99;
+            letter-spacing: -4px;
+            margin: 20px 0 25px;
+        }
+
+        .texto-portada h1 span {
+            color: var(--azul);
+        }
+
+        .texto-portada p {
+            max-width: 480px;
+            color: #414141;
+            font-size: 1.08rem;
+            margin-bottom: 30px;
+        }
+
+        .botones-portada {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .boton {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 22px;
+            border: 1px solid var(--negro);
+            border-radius: 3px;
+            background: var(--negro);
+            color: var(--blanco);
+            font-weight: bold;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .boton:hover {
+            background: var(--azul);
+            border-color: var(--azul);
+            transform: translateY(-2px);
+        }
+
+        .boton-secundario {
+            background: transparent;
+            color: var(--negro);
+        }
+
+        .boton-secundario:hover {
+            color: var(--blanco);
+        }
+
+        /* Ilustración de moda creada con CSS */
+
+        .ilustracion-portada {
+            position: relative;
+            min-height: 410px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .circulo-fondo {
+            position: absolute;
+            width: min(390px, 95%);
+            aspect-ratio: 1;
+            background: rgba(255, 255, 255, 0.38);
+            border-radius: 50%;
+        }
+
+        .prenda {
+            position: relative;
+            z-index: 1;
+            width: 245px;
+            height: 300px;
+            filter: drop-shadow(0 20px 18px rgba(0, 0, 0, 0.15));
+        }
+
+        .prenda svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .etiqueta-flotante {
+            position: absolute;
+            z-index: 2;
+            bottom: 45px;
+            left: 0;
+            background: var(--blanco);
+            padding: 13px 19px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            font-size: 0.83rem;
+        }
+
+        .etiqueta-flotante strong {
+            display: block;
+            font-size: 1rem;
+        }
+
+        /* =========================================
+           4. FRANJA DE ATRIBUTOS
+        ========================================= */
+
+        .franja-atributos {
+            background: var(--azul);
+            color: var(--blanco);
+        }
+
+        .lista-atributos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            text-align: center;
+        }
+
+        .atributo {
+            padding: 25px 15px;
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .atributo:last-child {
+            border-right: none;
+        }
+
+        .atributo strong {
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 3px;
+        }
+
+        .atributo span {
+            font-size: 0.86rem;
+            color: #e0e7ee;
+        }
+
+        /* =========================================
+           5. CATÁLOGO DE PRODUCTOS
+        ========================================= */
+
+        .productos {
+            background: var(--blanco);
+        }
+
+        .encabezado-productos {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 25px;
+        }
+
+        .encabezado-productos .descripcion-seccion {
+            margin-bottom: 38px;
+        }
+
+        .rejilla-productos {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 25px;
+        }
+
+        .tarjeta-producto {
+            background: var(--fondo);
+            border: 1px solid #efede8;
+            transition: transform 0.25s, box-shadow 0.25s;
+            overflow: hidden;
+        }
+
+        .tarjeta-producto:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+        }
+
+        .imagen-producto {
+            min-height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fondo-saco {
+            background: linear-gradient(140deg, #e9e1d5, #d2c1aa);
+        }
+
+        .fondo-abrigo {
+            background: linear-gradient(140deg, #e4e6e7, #c6cdd3);
+        }
+
+        .fondo-chaqueta {
+            background: linear-gradient(140deg, #d9dedc, #b7c0bd);
+        }
+
+        .ilustracion-producto {
+            width: 175px;
+            height: 220px;
+            filter: drop-shadow(0 12px 10px rgba(0, 0, 0, 0.14));
+            transition: transform 0.3s ease;
+        }
+
+        .tarjeta-producto:hover .ilustracion-producto {
+            transform: scale(1.06);
+        }
+
+        .etiqueta-producto {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            padding: 6px 10px;
+            background: var(--blanco);
+            font-size: 0.7rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .informacion-producto {
+            padding: 22px;
+        }
+
+        .informacion-producto h3 {
+            font-size: 1.2rem;
+            margin-bottom: 7px;
+        }
+
+        .informacion-producto p {
+            color: var(--gris-oscuro);
+            font-size: 0.91rem;
+            margin-bottom: 18px;
+        }
+
+        .enlace-producto {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: bold;
+            font-size: 0.88rem;
+            color: var(--azul);
+        }
+
+        .enlace-producto:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================================
+           6. SECCIÓN SOBRE LA EMPRESA
+        ========================================= */
+
+        .sobre-nosotros {
+            background: var(--beige-claro);
+        }
+
+        .contenido-nosotros {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 65px;
+            align-items: center;
+        }
+
+        .panel-nosotros {
+            min-height: 360px;
+            background: var(--azul);
+            color: var(--blanco);
+            padding: 45px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .panel-nosotros::after {
+            content: "";
+            position: absolute;
+            width: 240px;
+            height: 240px;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            border-radius: 50%;
+            right: -65px;
+            bottom: -80px;
+        }
+
+        .panel-nosotros .simbolo {
+            font-size: 4rem;
+            line-height: 1;
+            font-weight: bold;
+            color: var(--beige);
+        }
+
+        .panel-nosotros h3 {
+            font-size: 2rem;
+            line-height: 1.2;
+            max-width: 290px;
+        }
+
+        .panel-nosotros p {
+            color: #e0e7ee;
+            max-width: 300px;
+        }
+
+        .texto-nosotros p {
+            color: #505050;
+            margin-bottom: 18px;
+        }
+
+        .lista-valores {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 17px;
+            margin-top: 28px;
+        }
+
+        .valor {
+            border-left: 3px solid var(--beige);
+            padding-left: 13px;
+        }
+
+        .valor strong {
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .valor span {
+            font-size: 0.88rem;
+            color: var(--gris-oscuro);
+        }
+
+        /* =========================================
+           7. VENTAJAS COMPETITIVAS
+        ========================================= */
+
+        .ventajas {
+            background: var(--blanco);
+        }
+
+        .rejilla-ventajas {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .tarjeta-ventaja {
+            padding: 30px 25px;
+            border: 1px solid var(--gris);
+            background: var(--blanco);
+        }
+
+        .icono-ventaja {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            margin-bottom: 20px;
+            background: var(--beige-claro);
+            color: var(--azul);
+            font-size: 1.5rem;
+            border-radius: 50%;
+        }
+
+        .tarjeta-ventaja h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .tarjeta-ventaja p {
+            color: var(--gris-oscuro);
+            font-size: 0.92rem;
+        }
+
+        /* =========================================
+           8. CONTACTO
+        ========================================= */
+
+        .contacto {
+            background: var(--beige-claro);
+        }
+
+        .contenido-contacto {
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 65px;
+        }
+
+        .texto-contacto p {
+            color: #505050;
+            margin-bottom: 25px;
+        }
+
+        .dato-contacto {
+            margin-bottom: 20px;
+        }
+
+        .dato-contacto strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .dato-contacto span {
+            color: var(--gris-oscuro);
+            font-size: 0.94rem;
+        }
+
+        .formulario-contacto {
+            background: var(--blanco);
+            padding: 32px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.04);
+        }
+
+        .formulario-contacto h3 {
+            font-size: 1.4rem;
+            margin-bottom: 7px;
+        }
+
+        .nota-formulario {
+            color: var(--gris-oscuro);
+            font-size: 0.85rem;
+            margin-bottom: 24px;
+        }
+
+        .grupo-formulario {
+            margin-bottom: 18px;
+        }
+
+        .grupo-formulario label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        .grupo-formulario input,
+        .grupo-formulario textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #d7d7d7;
+            background: #fdfdfd;
+            border-radius: 3px;
+            color: var(--negro);
+        }
+
+        .grupo-formulario textarea {
+            min-height: 115px;
+            resize: vertical;
+        }
+
+        .grupo-formulario input:focus,
+        .grupo-formulario textarea:focus {
+            border-color: var(--azul);
+            outline: 2px solid rgba(36, 59, 83, 0.15);
+        }
+
+        .formulario-contacto .boton {
+            width: 100%;
+        }
+
+        .mensaje-formulario {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: var(--azul);
+        }
+
+        /* =========================================
+           9. PIE DE PÁGINA
+        ========================================= */
+
+        .pie-pagina {
+            background: var(--negro);
+            color: var(--blanco);
+            padding: 40px 0 20px;
+        }
+
+        .contenido-pie {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
+            padding-bottom: 28px;
+        }
+
+        .contenido-pie p {
+            color: #d0d0d0;
+            font-size: 0.88rem;
+            max-width: 400px;
+            margin-top: 10px;
+        }
+
+        .enlaces-pie {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 0.88rem;
+        }
+
+        .enlaces-pie a:hover {
+            color: var(--beige);
+        }
+
+        .derechos {
+            border-top: 1px solid #393939;
+            padding-top: 20px;
+            color: #bdbdbd;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+
+        /* =========================================
+           10. ADAPTACIÓN A TABLETAS Y CELULARES
+        ========================================= */
+
+        @media (max-width: 850px) {
+            .menu {
+                gap: 16px;
+            }
+
+            .menu a {
+                font-size: 0.82rem;
+            }
+
+            .contenido-portada {
+                gap: 20px;
+            }
+
+            .contenido-nosotros,
+            .contenido-contacto {
+                gap: 35px;
+            }
+
+            .rejilla-productos {
+                gap: 15px;
+            }
+
+            .imagen-producto {
+                min-height: 240px;
+            }
+
+            .rejilla-ventajas {
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .barra-navegacion {
+                min-height: 72px;
+            }
+
+            .boton-menu {
+                display: inline-block;
+            }
+
+            .menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                padding: 10px 5%;
+                background: var(--blanco);
+                border-bottom: 1px solid var(--gris);
+            }
+
+            .menu.abierto {
+                display: flex;
+            }
+
+            .menu li a {
+                display: block;
+                padding: 13px 10px;
+                font-size: 0.95rem;
+            }
+
+            .menu .enlace-contacto {
+                text-align: center;
+                margin: 5px 0 10px;
+            }
+
+            .portada {
+                min-height: auto;
+            }
+
+            .contenido-portada {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                padding-top: 65px;
+                padding-bottom: 35px;
+            }
+
+            .texto-portada h1 {
+                font-size: clamp(3rem, 13vw, 4.5rem);
+                letter-spacing: -2px;
+            }
+
+            .texto-portada p {
+                font-size: 1rem;
+            }
+
+            .ilustracion-portada {
+                min-height: 330px;
+            }
+
+            .prenda {
+                width: 205px;
+                height: 260px;
+            }
+
+            .etiqueta-flotante {
+                bottom: 20px;
+                left: 0;
+            }
+
+            .lista-atributos {
+                grid-template-columns: 1fr;
+            }
+
+            .atributo {
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+                padding: 20px 10px;
+            }
+
+            .atributo:last-child {
+                border-bottom: none;
+            }
+
+            .seccion {
+                padding: 60px 0;
+            }
+
+            .encabezado-productos {
+                display: block;
+            }
+
+            .rejilla-productos,
+            .rejilla-ventajas {
+                grid-template-columns: 1fr;
+            }
+
+            .imagen-producto {
+                min-height: 300px;
+            }
+
+            .contenido-nosotros,
+            .contenido-contacto {
+                grid-template-columns: 1fr;
+            }
+
+            .panel-nosotros {
+                min-height: 300px;
+                padding: 30px;
+            }
+
+            .lista-valores {
+                grid-template-columns: 1fr;
+            }
+
+            .formulario-contacto {
+                padding: 24px 20px;
+            }
+
+            .contenido-pie {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .enlaces-pie {
+                gap: 14px;
+            }
+        }
+
+        /* Respeta la preferencia de movimiento reducido. */
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================================
+         ENCABEZADO Y NAVEGACIÓN
+    ========================================== -->
+
+    <header class="encabezado">
+        <div class="contenedor barra-navegacion">
+
+            <a class="logo" href="#inicio" aria-label="Hilván y Humo, ir al inicio">
+                HILVÁN <span>&</span> HUMO
+                <small>MODA CON IDENTIDAD</small>
+            </a>
+
+            <button
+                class="boton-menu"
+                id="boton-menu"
+                type="button"
+                aria-label="Abrir menú de navegación"
+                aria-controls="menu-principal"
+                aria-expanded="false">
+                ☰ MENÚ
+            </button>
+
+            <nav aria-label="Navegación principal">
+                <ul class="menu" id="menu-principal">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#productos">Colección</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#ventajas">Ventajas</a></li>
+                    <li><a class="enlace-contacto" href="#contacto">Contáctanos</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+    <main>
+
+        <!-- =====================================
+             PORTADA PRINCIPAL
+        ====================================== -->
+
+        <section class="portada" id="inicio">
+            <div class="contenedor contenido-portada">
+
+                <div class="texto-portada">
+                    <span class="etiqueta">Estilo para cada temporada</span>
+
+                    <h1>
+                        Viste tu esencia.
+                        <span>Siente el estilo.</span>
+                    </h1>
+
+                    <p>
+                        En Hilván & Humo creemos que la moda va más allá
+                        de vestir. Descubre sacos, abrigos y chaquetas
+                        que combinan comodidad, personalidad y diseño.
+                    </p>
+
+                    <div class="botones-portada">
+                        <a href="#productos" class="boton">
+                            Explorar colección →
+                        </a>
+
+                        <a href="#nosotros" class="boton boton-secundario">
+                            Conócenos
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Ilustración decorativa vectorial, sin imágenes externas. -->
+
+                <div class="ilustracion-portada" aria-hidden="true">
+                    <div class="circulo-fondo"></div>
+
+                    <div class="prenda">
+                        <svg viewBox="0 0 240 300"
+                             xmlns="http://www.w3.org/2000/svg">
+
+                            <defs>
+                                <linearGradient id="telaPortada"
+                                                x1="0" y1="0"
+                                                x2="1" y2="1">
+                                    <stop offset="0%" stop-color="#344b60"/>
+                                    <stop offset="100%" stop-color="#172b3d"/>
+                                </linearGradient>
+                            </defs>
+
+                            <path d="M78 25 L102 12 L138 12 L162 25
+                                     L218 57 L197 120 L173 108
+                                     L173 282 L67 282 L67 108
+                                     L43 120 L22 57 Z"
+                                  fill="url(#telaPortada)"/>
+
+                            <path d="M102 12 L120 55 L138 12
+                                     L150 35 L132 76 L120 63
+                                     L108 76 L90 35 Z"
+                                  fill="#d8c5a5"/>
+
+                            <path d="M120 63 L120 280"
+                                  stroke="#8a9baa" stroke-width="2"/>
+
+                            <path d="M84 160 L108 160 L108 205 L84 205 Z"
+                                  fill="#243b53" stroke="#526477"/>
+
+                            <path d="M132 160 L156 160 L156 205 L132 205 Z"
+                                  fill="#243b53" stroke="#526477"/>
+
+                            <g fill="#d8c5a5">
+                                <circle cx="120" cy="100" r="3"/>
+                                <circle cx="120" cy="125" r="3"/>
+                                <circle cx="120" cy="150" r="3"/>
+                                <circle cx="120" cy="175" r="3"/>
+                                <circle cx="120" cy="200" r="3"/>
+                            </g>
+
+                        </svg>
+                    </div>
+
+                    <div class="etiqueta-flotante">
+                        <strong>Hilván & Humo</strong>
+                        Prendas para tu día a día
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- =====================================
+             ATRIBUTOS DE MARCA
+        ====================================== -->
+
+        <section class="franja-atributos" aria-label="Nuestros atributos">
+            <div class="contenedor lista-atributos">
+
+                <div class="atributo">
+                    <strong>Diseño versátil</strong>
+                    <span>Prendas para distintas ocasiones</span>
+                </div>
+
+                <div class="atributo">
+                    <strong>Estilo atemporal</strong>
+                    <span>Moda que se adapta a ti</span>
+                </div>
+
+                <div class="atributo">
+                    <strong>Comodidad diaria</strong>
+                    <span>Libertad para expresar tu esencia</span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- =====================================
+             CATÁLOGO DE PRODUCTOS
+        ====================================== -->
+
+        <section class="seccion productos" id="productos">
+            <div class="contenedor">
+
+                <div class="encabezado-productos">
+                    <div>
+                        <span class="etiqueta">Nuestra selección</span>
+                        <h2 class="titulo-seccion">Encuentra tu próxima prenda</h2>
+                        <p class="descripcion-seccion">
+                            Explora una selección de prendas pensadas para
+                            acompañarte en diferentes momentos, desde los
+                            días casuales hasta las ocasiones especiales.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="rejilla-productos">
+
+                    <!-- Producto 1: Sacos -->
+
+                    <article class="tarjeta-producto">
+                        <div class="imagen-producto fondo-saco">
+                            <span class="etiqueta-producto">Esenciales</span>
+
+                            <svg class="ilustracion-producto"
+                                 viewBox="0 0 180 230"
+                                 role="img"
+                                 aria-label="Ilustración de un saco beige">
+
+                                <path d="M58 24 L77 14 L103 14 L122 24
+                                         L158 43 L145 89 L126 81
+                                         L126 213 L54 213 L54 81
+                                         L35 89 L22 43 Z"
+                                      fill="#c5aa83"/>
+
+                                <path d="M77 14 L90 51 L103 14
+                                         L112 31 L96 67 L90 57
+                                         L84 67 L68 31 Z"
+                                      fill="#f1e5d2"/>
+
+                                <path d="M90 57 L90 211"
+                                      stroke="#927956" stroke-width="2"/>
+
+                                <path d="M62 130 L79 130 L79 166 L62 166 Z"
+                                      fill="#b79b74"/>
+
+                                <path d="M101 130 L118 130 L118 166 L101 166 Z"
+                                      fill="#b79b74"/>
+
+                                <g fill="#f5f0e8">
+                                    <circle cx="90" cy="90" r="2.5"/>
+                                    <circle cx="90" cy="110" r="2.5"/>
+                                    <circle cx="90" cy="130" r="2.5"/>
+                                    <circle cx="90" cy="150" r="2.5"/>
+                                </g>
+                            </svg>
+                        </div>
+
+                        <div class="informacion-producto">
+                            <h3>Sacos</h3>
+                            <p>
+                                Diseños cómodos y versátiles para crear
+                                combinaciones con personalidad.
+                            </p>
+                            <a class="enlace-producto" href="#contacto">
+                                Consultar disponibilidad →
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Producto 2: Abrigos -->
+
+                    <article class="tarjeta-producto">
+                        <div class="imagen-producto fondo-abrigo">
+                            <span class="etiqueta-producto">Elegancia</span>
+
+                            <svg class="ilustracion-producto"
+                                 viewBox="0 0 180 230"
+                                 role="img"
+                                 aria-label="Ilustración de un abrigo gris">
+
+                                <path d="M57 20 L75 10 L105 10 L123 20
+                                         L157 42 L145 84 L127 75
+                                         L132 218 L48 218 L53 75
+                                         L35 84 L23 42 Z"
+                                      fill="#656c75"/>
+
+                                <path d="M75 10 L90 48 L105 10
+                                         L117 30 L99 69 L90 57
+                                         L81 69 L63 30 Z"
+                                      fill="#dce0e4"/>
+
+                                <path d="M90 57 L90 215"
+                                      stroke="#c5cbd0" stroke-width="2"/>
+
+                                <path d="M61 139 L79 139 L79 174 L61 174 Z"
+                                      fill="#525963"/>
+
+                                <path d="M101 139 L119 139 L119 174 L101 174 Z"
+                                      fill="#525963"/>
+
+                                <path d="M52 80 L69 95 L69 211"
+                                      fill="none" stroke="#7d858f"
+                                      stroke-width="2"/>
+
+                                <path d="M128 80 L111 95 L111 211"
+                                      fill="none" stroke="#7d858f"
+                                      stroke-width="2"/>
+                            </svg>
+                        </div>
+
+                        <div class="informacion-producto">
+                            <h3>Abrigos</h3>
+                            <p>
+                                Siluetas clásicas y modernas que aportan
+                                presencia y elegancia a tu estilo.
+                            </p>
+                            <a class="enlace-producto" href="#contacto">
+                                Consultar disponibilidad →
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Producto 3: Chaquetas -->
+
+                    <article class="tarjeta-producto">
+                        <div class="imagen-producto fondo-chaqueta">
+                            <span class="etiqueta-producto">Urbano</span>
+
+                            <svg class="ilustracion-producto"
+                                 viewBox="0 0 180 230"
+                                 role="img"
+                                 aria-label="Ilustración de una chaqueta azul oscuro">
+
+                                <path d="M59 24 L76 12 L104 12 L121 24
+                                         L157 47 L143 92 L124 80
+                                         L129 212 L51 212 L56 80
+                                         L37 92 L23 47 Z"
+                                      fill="#273c50"/>
+
+                                <path d="M76 12 L90 48 L104 12
+                                         L112 32 L98 65 L90 56
+                                         L82 65 L68 32 Z"
+                                      fill="#b6c0c6"/>
+
+                                <path d="M90 56 L90 211"
+                                      stroke="#a9b7c4" stroke-width="2"/>
+
+                                <path d="M59 118 L79 118 L79 150 L59 150 Z"
+                                      fill="#344d63" stroke="#8b9aa6"/>
+
+                                <path d="M101 118 L121 118 L121 150 L101 150 Z"
+                                      fill="#344d63" stroke="#8b9aa6"/>
+
+                                <path d="M48 49 L62 64 L62 91"
+                                      fill="none" stroke="#72889b"
+                                      stroke-width="3"/>
+
+                                <path d="M132 49 L118 64 L118 91"
+                                      fill="none" stroke="#72889b"
+                                      stroke-width="3"/>
+
+                                <g fill="#d8c5a5">
+                                    <circle cx="90" cy="90" r="2.5"/>
+                                    <circle cx="90" cy="112" r="2.5"/>
+                                    <circle cx="90" cy="134" r="2.5"/>
+                                    <circle cx="90" cy="156" r="2.5"/>
+                                </g>
+                            </svg>
+                        </div>
+
+                        <div class="informacion-producto">
+                            <h3>Chaquetas</h3>
+                            <p>
+                                Opciones de inspiración urbana para
+                                complementar tus conjuntos cotidianos.
+                            </p>
+                            <a class="enlace-producto" href="#contacto">
+                                Consultar disponibilidad →
+                            </a>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================
+             PRESENTACIÓN DE LA EMPRESA
+        ====================================== -->
+
+        <section class="seccion sobre-nosotros" id="nosotros">
+            <div class="contenedor contenido-nosotros">
+
+                <div class="panel-nosotros">
+                    <span class="simbolo" aria-hidden="true">H&H</span>
+
+                    <h3>La moda también habla de quién eres.</h3>
+
+                    <p>
+                        Tu identidad, tu comodidad, tu manera de vestir.
+                    </p>
+                </div>
+
+                <div class="texto-nosotros">
+                    <span class="etiqueta">Nuestra esencia</span>
+
+                    <h2 class="titulo-seccion">
+                        Más que prendas, una forma de expresarte
+                    </h2>
+
+                    <p>
+                        Hilván & Humo es una comercializadora de prendas
+                        de vestir enfocada en sacos, abrigos y chaquetas
+                        para jóvenes y adultos de diferentes edades y estilos.
+                    </p>
+
+                    <p>
+                        Nuestra propuesta busca combinar diseños versátiles,
+                        colores fáciles de combinar y opciones para distintas
+                        ocasiones. Queremos que cada persona encuentre
+                        prendas que se adapten a su personalidad y a su rutina.
+                    </p>
+
+                    <div class="lista-valores">
+                        <div class="valor">
+                            <strong>Identidad</strong>
+                            <span>Un estilo que refleja quién eres.</span>
+                        </div>
+
+                        <div class="valor">
+                            <strong>Versatilidad</strong>
+                            <span>Prendas para diferentes ocasiones.</span>
+                        </div>
+
+                        <div class="valor">
+                            <strong>Compromiso</strong>
+                            <span>Atención enfocada en el cliente.</span>
+                        </div>
+
+                        <div class="valor">
+                            <strong>Actualidad</strong>
+                            <span>Inspiración en la moda contemporánea.</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- =====================================
+             VENTAJAS COMPETITIVAS
+        ====================================== -->
+
+        <section class="seccion ventajas" id="ventajas">
+            <div class="contenedor">
+
+                <span class="etiqueta">¿Por qué elegirnos?</span>
+
+                <h2 class="titulo-seccion">
+                    Lo que hace especial a nuestra propuesta
+                </h2>
+
+                <p class="descripcion-seccion">
+                    Apostamos por una experiencia de compra clara, una
+                    selección versátil y una identidad visual coherente
+                    con las necesidades de nuestros clientes.
+                </p>
+
+                <div class="rejilla-ventajas">
+
+                    <article class="tarjeta-ventaja">
+                        <div class="icono-ventaja" aria-hidden="true">✦</div>
+                        <h3>Estilo versátil</h3>
+                        <p>
+                            Prendas que pueden combinarse con diferentes
+                            estilos, colores y ocasiones.
+                        </p>
+                    </article>
+
+                    <article class="tarjeta-ventaja">
+                        <div class="icono-ventaja" aria-hidden="true">◇</div>
+                        <h3>Variedad de prendas</h3>
+                        <p>
+                            Una propuesta especializada en sacos,
+                            abrigos y chaquetas para diferentes preferencias.
+                        </p>
+                    </article>
+
+                    <article class="tarjeta-ventaja">
+                        <div class="icono-ventaja" aria-hidden="true">♡</div>
+                        <h3>Atención al cliente</h3>
+                        <p>
+                            Un espacio para resolver inquietudes sobre
+                            productos, tallas y disponibilidad.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================
+             CONTACTO Y FORMULARIO DEMOSTRATIVO
+        ====================================== -->
+
+        <section class="seccion contacto" id="contacto">
+            <div class="contenedor contenido-contacto">
+
+                <div class="texto-contacto">
+                    <span class="etiqueta">Hablemos de moda</span>
+
+                    <h2 class="titulo-seccion">
+                        Encuentra tu próximo favorito
+                    </h2>
+
+                    <p>
+                        ¿Quieres conocer más sobre nuestros sacos, abrigos
+                        o chaquetas? Puedes utilizar el formulario de ejemplo
+                        para explorar cómo sería el contacto desde la página.
+                    </p>
+
+                    <div class="dato-contacto">
+                        <strong>Marca</strong>
+                        <span>Hilván & Humo</span>
+                    </div>
+
+                    <div class="dato-contacto">
+                        <strong>Actividad</strong>
+                        <span>Comercialización de prendas de vestir</span>
+                    </div>
+
+                    <div class="dato-contacto">
+                        <strong>Productos</strong>
+                        <span>Sacos, abrigos y chaquetas</span>
+                    </div>
+
+                    <div class="dato-contacto">
+                        <strong>Horario de atención</strong>
+                        <span>Por definir según la operación del negocio</span>
+                    </div>
+                </div>
+
+                <form class="formulario-contacto" id="formulario-contacto">
+
+                    <h3>Escríbenos</h3>
+
+                    <p class="nota-formulario">
+                        Formulario demostrativo. Los datos no se envían
+                        ni se almacenan.
+                    </p>
+
+                    <div class="grupo-formulario">
+                        <label for="nombre">Nombre</label>
+                        <input
+                            type="text"
+                            id="nombre"
+                            name="nombre"
+                            placeholder="Escribe tu nombre"
+                            autocomplete="name"
+                            required>
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label for="correo">Correo electrónico</label>
+                        <input
+                            type="email"
+                            id="correo"
+                            name="correo"
+                            placeholder="ejemplo@correo.com"
+                            autocomplete="email"
+                            required>
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label for="mensaje">¿Qué producto te interesa?</label>
+                        <textarea
+                            id="mensaje"
+                            name="mensaje"
+                            placeholder="Cuéntanos qué estás buscando..."
+                            required></textarea>
+                    </div>
+
+                    <button class="boton" type="submit">
+                        Probar formulario →
+                    </button>
+
+                    <p
+                        class="mensaje-formulario"
+                        id="mensaje-formulario"
+                        role="status"
+                        aria-live="polite">
+                    </p>
+
+                </form>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =========================================
+         PIE DE PÁGINA
+    ========================================== -->
+
+    <footer class="pie-pagina">
+        <div class="contenedor">
+
+            <div class="contenido-pie">
+
+                <div>
+                    <a class="logo" href="#inicio">
+                        HILVÁN <span>&</span> HUMO
+                        <small>MODA CON IDENTIDAD</small>
+                    </a>
+
+                    <p>
+                        Sacos, abrigos y chaquetas para expresar
+                        tu estilo en cada momento.
+                    </p>
+                </div>
+
+                <nav class="enlaces-pie" aria-label="Enlaces del pie de página">
+                    <a href="#inicio">Inicio</a>
+                    <a href="#productos">Colección</a>
+                    <a href="#nosotros">Nosotros</a>
+                    <a href="#contacto">Contacto</a>
+                </nav>
+
+            </div>
+
+            <div class="derechos">
+                <p>
+                    &copy; <span id="anio"></span> Hilván & Humo.
+                    Todos los derechos reservados.
+                </p>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- =========================================
+         JAVASCRIPT: MENÚ Y FORMULARIO DE PRUEBA
+    ========================================== -->
+
+    <script>
+        // Abrir y cerrar el menú en dispositivos móviles.
+
+        const botonMenu = document.getElementById("boton-menu");
+        const menuPrincipal = document.getElementById("menu-principal");
+
+        botonMenu.addEventListener("click", function () {
+            const estaAbierto = menuPrincipal.classList.toggle("abierto");
+
+            botonMenu.setAttribute("aria-expanded", estaAbierto);
+            botonMenu.setAttribute(
+                "aria-label",
+                estaAbierto
+                    ? "Cerrar menú de navegación"
+                    : "Abrir menú de navegación"
+            );
+
+            botonMenu.textContent = estaAbierto ? "✕ CERRAR" : "☰ MENÚ";
+        });
+
+        // Cerrar el menú al seleccionar una opción.
+
+        menuPrincipal.querySelectorAll("a").forEach(function (enlace) {
+            enlace.addEventListener("click", function () {
+                menuPrincipal.classList.remove("abierto");
+                botonMenu.setAttribute("aria-expanded", "false");
+                botonMenu.setAttribute(
+                    "aria-label",
+                    "Abrir menú de navegación"
+                );
+                botonMenu.textContent = "☰ MENÚ";
+            });
+        });
+
+        // Mostrar el año actual automáticamente.
+
+        document.getElementById("anio").textContent =
+            new Date().getFullYear();
+
+        // Formulario demostrativo: no envía información a ningún servidor.
+
+        const formulario = document.getElementById("formulario-contacto");
+        const mensajeFormulario =
+            document.getElementById("mensaje-formulario");
+
+        formulario.addEventListener("submit", function (evento) {
+            evento.preventDefault();
+
+            mensajeFormulario.textContent =
+                "Prueba completada. No se enviaron ni almacenaron tus datos. " +
+                "Para recibir mensajes reales, este formulario necesita " +
+                "integrarse con un servicio de envío o un servidor.";
+
+            formulario.reset();
+        });
+    </script>
+
+</body>
+</html>
